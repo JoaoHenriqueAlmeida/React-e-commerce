@@ -1,8 +1,19 @@
 import React from 'react';
-import './App.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MarketPlace from './pages/MarketPlace';
 
-function App() {
-  return (<> </>);
+class App extends React.Component {
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route path="/">
+            <MarketPlace />
+          </Route>
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;
