@@ -24,10 +24,10 @@ class CategoriesList extends Component {
   render() {
     const { categories } = this.state;
     return (
-      <div>
+      <>
         { categories.map((e) => (
-          <p key={ e.id } datatest-id="category">{ e.name }</p>)) }
-      </div>
+          <div key={ e.id } data-testid="category">{ e.name }</div>)) }
+      </>
     );
   }
 }
