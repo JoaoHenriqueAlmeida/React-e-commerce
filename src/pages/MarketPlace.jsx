@@ -1,6 +1,8 @@
 import React from 'react';
 import ProductList from '../components/ProductList';
 import { getProductsFromCategoryAndQuery } from '../services/api';
+import CategoriesList from '../components/CategoriesList'; 
+
 
 class MarketPlace extends React.Component {
   constructor() {
@@ -9,9 +11,11 @@ class MarketPlace extends React.Component {
     this.state = {
       inputValue: '',
       productList: [],
+      selectedCategory:''
     };
     this.handleChange = this.handleChange.bind(this);
     this.searchProducts = this.searchProducts.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleChange({ target }) {
@@ -21,13 +25,22 @@ class MarketPlace extends React.Component {
     });
   }
 
+  handleClick({ target }) {
+    const idItem = target.id;
+    this.setState({
+      selectedCategory: idItem,
+    })
+    this.searchProducts()
+
+  }
+ 
   async searchProducts() {
-    const { inputValue } = this.state;
-    const result = await getProductsFromCategoryAndQuery('', inputValue);
+    const { inputValue, selectedCategory } = this.state;
+    const result = await getProductsFromCategoryAndQuery(selectedCategory, inputValue);
     this.setState({
       productList: result.results,
     });
-    return result;
+    
   }
 
   render() {
@@ -51,7 +64,9 @@ class MarketPlace extends React.Component {
         >
           Pesquisar
         </button>
+        <CategoriesList handleClick={ this.handleClick} />
         <ProductList productList={ productList } />
+      
       </>
     );
   }

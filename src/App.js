@@ -13,8 +13,7 @@ class App extends React.Component {
           <Route path="/empty-cart" component={ EmptyCart } />
           <Route exact path="/">
             <MarketPlace />
-            <CartButton />
-            <CategoriesList />
+            <CartButton />          
           </Route>
         </Switch>
       </Router>
