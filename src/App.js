@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import MarketPlace from './pages/MarketPlace';
 import CartButton from './components/CartButton';
 import EmptyCart from './pages/EmptyCart';
-import CategoriesList from './components/CategoriesList';
 import ProductDetail from './pages/ProductDetail';
 
 class App extends React.Component {
@@ -15,7 +14,6 @@ class App extends React.Component {
           <Route exact path="/">
             <MarketPlace />
             <CartButton />
-            <CategoriesList />
           </Route>
           <Route path="/product/:name" component={ ProductDetail } />
         </Switch>
