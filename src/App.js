@@ -4,6 +4,7 @@ import MarketPlace from './pages/MarketPlace';
 import CartButton from './components/CartButton';
 import EmptyCart from './pages/EmptyCart';
 import CategoriesList from './components/CategoriesList';
+import ProductDetail from './pages/ProductDetail';
 
 class App extends React.Component {
   render() {
@@ -16,6 +17,7 @@ class App extends React.Component {
             <CartButton />
             <CategoriesList />
           </Route>
+          <Route path="/product/:name" component={ ProductDetail } />
         </Switch>
       </Router>
     );
