@@ -7,21 +7,33 @@ class ProductDetail extends Component {
     this.state = {
       productObj: '',
       attributes: [],
+      storedProducts: [],
     };
 
+    this.getLocalContent = this.getLocalContent.bind(this);
     this.fetchProductById = this.fetchProductById.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.fetchProductById();
+    this.getLocalContent();
   }
 
   handleClick() {
-    const { productObj } = this.state;
-    const array = [];
-    array.push(JSON.stringify(productObj));
-    localStorage.setItem('cartProducts', array);
+    const { storedProducts, productObj } = this.state;
+    const stored = [...JSON.parse(storedProducts)];
+    localStorage.setItem('cartProducts', JSON.stringify([...stored, productObj]));
+  }
+
+  async getLocalContent() {
+    if (!localStorage.getItem('cartProducts')) {
+      localStorage.setItem('cartProducts', JSON.stringify([]));
+    }
+    const stored = localStorage.getItem('cartProducts');
+    this.setState({
+      storedProducts: stored,
+    });
   }
 
   async fetchProductById() {
