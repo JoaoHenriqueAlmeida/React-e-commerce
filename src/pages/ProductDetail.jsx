@@ -10,10 +10,18 @@ class ProductDetail extends Component {
     };
 
     this.fetchProductById = this.fetchProductById.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
     this.fetchProductById();
+  }
+
+  handleClick() {
+    const { productObj } = this.state;
+    const array = [];
+    array.push(JSON.stringify(productObj));
+    localStorage.setItem('cartProducts', array);
   }
 
   async fetchProductById() {
@@ -53,6 +61,7 @@ class ProductDetail extends Component {
         <button
           data-testid="product-detail-add-to-cart"
           type="button"
+          onClick={ this.handleClick }
         >
           Adicionar ao carrinho
         </button>
