@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ProductList from '../components/ProductList';
 import { getProductsFromCategoryAndQuery } from '../services/api';
 import CategoriesList from '../components/CategoriesList';
+import CartButton from '../components/CartButton';
 
-class MarketPlace extends React.Component {
+class MarketPlace extends Component {
   constructor() {
     super();
 
@@ -61,6 +62,7 @@ class MarketPlace extends React.Component {
         >
           Pesquisar
         </button>
+        <CartButton />
         <CategoriesList handleClick={ this.handleClick } />
         <ProductList productList={ productList } />
 
