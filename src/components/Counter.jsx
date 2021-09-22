@@ -14,7 +14,7 @@ class Counter extends Component {
   increaseQtt() {
     const { maxqtt } = this.props;
     this.setState((previousState) => ({
-      productQtt: previousState.productQtt + 1 <= maxqtt ? previousState.productQtt + 1 
+      productQtt: previousState.productQtt + 1 <= maxqtt ? previousState.productQtt + 1
         : previousState.productQtt,
     }));
   }
