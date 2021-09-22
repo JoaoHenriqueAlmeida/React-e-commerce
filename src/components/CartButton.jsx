@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 class CartButton extends Component {
   checkStorage() {
-    if (!localStorage.getItem('cartProducts')) {
+    if (!localStorage.cartProducts) {
       return ('/empty-cart');
     }
     return ('/shopping-cart');

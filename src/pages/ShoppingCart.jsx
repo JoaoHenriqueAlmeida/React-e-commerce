@@ -39,7 +39,7 @@ class ShoppingCart extends Component {
             <p data-testid="shopping-cart-product-quantity">
               { products.filter((product) => product.id === e.id).length }
             </p>
-            <Counter maxqtt={ e.available_quantity } />
+            <Counter maxqtt={ e.available_quantity || e.maxqtt } />
             <RemoveButton />
           </div>
         ))}

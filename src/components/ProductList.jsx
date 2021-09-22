@@ -6,13 +6,16 @@ class ProductList extends Component {
   render() {
     const { productList } = this.props;
     return (
-      productList.map(({ title, thumbnail, price, id }) => (<ProductCard
-        key={ id }
-        title={ title }
-        thumbnail={ thumbnail }
-        price={ price }
-        id={ id }
-      />))
+      productList
+        .map(({ title, thumbnail, price, id, available_quantity: maxqtt }) => (
+          <ProductCard
+            key={ id }
+            title={ title }
+            thumbnail={ thumbnail }
+            price={ price }
+            id={ id }
+            maxqtt={ maxqtt }
+          />))
     );
   }
 }
