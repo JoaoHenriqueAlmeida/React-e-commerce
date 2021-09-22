@@ -65,7 +65,6 @@ class MarketPlace extends Component {
         <CartButton />
         <CategoriesList handleClick={ this.handleClick } />
         <ProductList productList={ productList } />
-
       </>
     );
   }
