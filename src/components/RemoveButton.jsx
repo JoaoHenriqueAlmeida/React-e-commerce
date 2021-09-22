@@ -13,7 +13,7 @@ class RemoveButton extends Component {
 
   render() {
     return (
-      <button type="button" onClick="">
+      <button type="button">
         Remove
       </button>
     );
