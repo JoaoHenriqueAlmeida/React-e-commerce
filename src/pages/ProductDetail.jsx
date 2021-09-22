@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import CartButton from '../components/CartButton';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -56,6 +57,7 @@ class ProductDetail extends Component {
     const { productObj: { title, thumbnail, price }, attributes } = this.state;
     return (
       <div>
+        <CartButton />
         <h1 data-testid="product-detail-name">{`${title} - R$ ${price}`}</h1>
         <img className="product-img" src={ thumbnail } alt="product" />
         <div className="product-specifications">

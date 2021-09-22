@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import ProductList from '../components/ProductList';
+import Counter from '../components/Counter';
+import HomeButton from '../components/HomeButton';
 
 class ShoppingCart extends Component {
   constructor(props) {
@@ -28,7 +29,17 @@ class ShoppingCart extends Component {
     const { products } = this.state;
     return (
       <div>
-        <ProductList productList={ products } />
+        <HomeButton />
+        {products.map((e, index) => (
+          <div key={ index }>
+            <p data-testid="shopping-cart-product-name">{ e.title }</p>
+            <img src={ e.thumbnail } alt={ `${e.title}-thumbnail ` } />
+            <p data-testid="shopping-cart-product-quantity">
+              { products.filter((product) => product.id === e.id).length }
+            </p>
+            <Counter maxqtt={ e.available_quantity } />
+          </div>
+        ))}
       </div>
     );
   }
