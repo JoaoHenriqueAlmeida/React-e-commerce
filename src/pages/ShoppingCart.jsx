@@ -32,7 +32,7 @@ class ShoppingCart extends Component {
     return (
       <div>
         <HomeButton />
-        {products.map((e, index) => (
+        {products.length !== 0 ? products.map((e, index) => (
           <div key={ index }>
             <p data-testid="shopping-cart-product-name">{ e.title }</p>
             <img src={ e.thumbnail } alt={ `${e.title}-thumbnail ` } />
@@ -42,7 +42,7 @@ class ShoppingCart extends Component {
             <Counter maxqtt={ e.available_quantity || e.maxqtt } />
             <RemoveButton />
           </div>
-        ))}
+        )) : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>}
         <FinishButton />
       </div>
     );

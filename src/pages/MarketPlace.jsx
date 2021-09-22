@@ -18,6 +18,10 @@ class MarketPlace extends Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
+  componentDidMount() {
+    this.checkStorage();
+  }
+
   handleChange({ target }) {
     const { value, name } = target;
     this.setState({
@@ -31,6 +35,12 @@ class MarketPlace extends Component {
       selectedCategory: idItem,
     });
     this.searchProducts();
+  }
+
+  checkStorage() {
+    if (!localStorage.cartProducts) {
+      localStorage.cartProducts = JSON.stringify([]);
+    }
   }
 
   async searchProducts() {
