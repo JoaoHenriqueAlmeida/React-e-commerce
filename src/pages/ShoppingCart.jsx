@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Counter from '../components/Counter';
 import HomeButton from '../components/HomeButton';
+import RemoveButton from '../components/RemoveButton';
+import FinishButton from '../components/FinishButton';
 
 class ShoppingCart extends Component {
   constructor(props) {
@@ -30,16 +32,18 @@ class ShoppingCart extends Component {
     return (
       <div>
         <HomeButton />
-        {products.map((e, index) => (
+        {products.length !== 0 ? products.map((e, index) => (
           <div key={ index }>
             <p data-testid="shopping-cart-product-name">{ e.title }</p>
             <img src={ e.thumbnail } alt={ `${e.title}-thumbnail ` } />
             <p data-testid="shopping-cart-product-quantity">
               { products.filter((product) => product.id === e.id).length }
             </p>
-            <Counter maxqtt={ e.available_quantity } />
+            <Counter maxqtt={ e.available_quantity || e.maxqtt } />
+            <RemoveButton />
           </div>
-        ))}
+        )) : <p data-testid="shopping-cart-empty-message">Seu carrinho está vazio</p>}
+        <FinishButton />
       </div>
     );
   }
