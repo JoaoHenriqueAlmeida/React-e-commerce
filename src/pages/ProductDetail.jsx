@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CartButton from '../components/CartButton';
+import Evaluation from '../components/Evaluation';
 
 class ProductDetail extends Component {
   constructor(props) {
@@ -79,6 +80,7 @@ class ProductDetail extends Component {
         >
           Adicionar ao carrinho
         </button>
+        <Evaluation />
       </div>
     );
   }
