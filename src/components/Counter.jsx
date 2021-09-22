@@ -29,9 +29,21 @@ class Counter extends Component {
     const { productQtt } = this.state;
     return (
       <div>
-        <button type="button" onClick={ this.increaseQtt }>Mais</button>
+        <button
+          data-testid="product-increase-quantity"
+          type="button"
+          onClick={ this.increaseQtt }
+        >
+          Mais
+        </button>
         <p>{ productQtt }</p>
-        <button type="button" onClick={ this.decreaseQtt }>Menos</button>
+        <button
+          data-testid="product-decrease-quantity"
+          type="button"
+          onClick={ this.decreaseQtt }
+        >
+          Menos
+        </button>
       </div>
     );
   }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Counter from '../components/Counter';
 import HomeButton from '../components/HomeButton';
+import RemoveButton from '../components/RemoveButton';
 
 class ShoppingCart extends Component {
   constructor(props) {
@@ -30,6 +31,7 @@ class ShoppingCart extends Component {
     return (
       <div>
         <HomeButton />
+        <RemoveButton />
         {products.map((e, index) => (
           <div key={ index }>
             <p data-testid="shopping-cart-product-name">{ e.title }</p>
